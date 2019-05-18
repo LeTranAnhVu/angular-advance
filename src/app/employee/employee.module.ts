@@ -9,6 +9,6 @@ import {DashboardService} from '../dashboard/services/dashboard.service';
     CommonModule
   ],
   exports: [EmployeeManagerComponent],
-  providers: []
+  providers: [DashboardService]
 })
 export class EmployeeModule { }
