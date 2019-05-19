@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DashboardManagerComponent} from './dashboard-manager/dashboard-manager.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import {DashboardService} from './services/dashboard.service';
 
 @NgModule({
   declarations: [DashboardManagerComponent],
