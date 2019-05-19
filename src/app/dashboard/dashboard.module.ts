@@ -10,7 +10,7 @@ import {DashboardService} from './services/dashboard.service';
     CommonModule,
     DashboardRoutingModule
   ],
-  providers: [DashboardService],
+  providers: [],
   exports: [
     DashboardManagerComponent,
   ]
