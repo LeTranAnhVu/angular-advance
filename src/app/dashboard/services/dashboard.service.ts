@@ -11,7 +11,6 @@ export class DashboardService {
 
   constructor() {
   }
-
   getData() {
     return this.data;
   }

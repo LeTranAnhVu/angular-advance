@@ -5,7 +5,7 @@ import {DashboardService} from './dashboard/services/dashboard.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DashboardService]
+  providers: []
 })
 export class AppComponent {
   title = 'advanceApp';

@@ -3,18 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {DashboardService} from './dashboard/services/dashboard.service';
-import {DashboardModule} from './dashboard/dashboard.module';
-import {EmployeeModule} from './employee/employee.module';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    DashboardModule,
-    EmployeeModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

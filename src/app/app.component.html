@@ -1,12 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    App component {{ this.dashboardService.getData() }}
-  </h1>
-<hr>
-  dash board
-<app-dashboard-manager></app-dashboard-manager>
-<hr>
-employee
-<app-employee-manager></app-employee-manager>
+<div>
 
+  <ul>
+    <li>
+      <a routerLink="/"> home</a>
+    </li>
+    <li>
+      <a routerLink="/dashboard"> dashboard</a>
+    </li>
+    <li>
+      <a routerLink="/employees">employees</a>
+    </li>
+  </ul>
+
+  <hr>
+  <router-outlet></router-outlet>
+
+</div>
