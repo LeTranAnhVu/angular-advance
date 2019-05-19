@@ -20,3 +20,18 @@ B2:
               "node_modules/leaflet/dist/leaflet.js"
             ],
 ```
+
+###Note:
+> Marker image should be explicit point out when using. If not it not show up when deploy to production
+```
+    markerConf = {
+      icon: L.icon({
+        iconUrl: '/marker-icon.png',
+        shadowUrl: '/marker-shadow.png'
+      })
+    };
+```
+>Then
+```
+    L.marker([51.505, -0.09], markerConf).addTo(map)
+```
