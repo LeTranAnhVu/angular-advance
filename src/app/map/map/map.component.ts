@@ -11,6 +11,9 @@ export class MapComponent implements OnInit {
   public map: any;
   public markIcon: any;
   public markersLatLng: any[] = [];
+  public markers = [];
+  public markerEditPosition: any = {};
+  public isShowMarkerEdit = false;
 
   constructor() {
     this.markIcon = {
@@ -21,8 +24,39 @@ export class MapComponent implements OnInit {
     };
   }
 
+  markerOnMouseOver(e) {
+    setTimeout(
+      () => {
+        this.markerEditPosition.left = e.originalEvent.clientX;
+        this.markerEditPosition.top = e.originalEvent.clientY;
+        this.isShowMarkerEdit = true;
+      },
+      1000
+    );
+
+  }
+
+  markerOnMouseOut(e) {
+    setTimeout(
+      () => {
+        this.isShowMarkerEdit = false;
+      },
+      800
+    );
+
+  }
+
   markerFactory(corr) {
-    L.marker(corr, this.markIcon).addTo(this.map).bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
+    const self = this;
+    const newMarker = L.marker(corr, this.markIcon);
+    newMarker.on('mouseover', (e) => {
+      self.markerOnMouseOver(e);
+    });
+    newMarker.on('mouseout', (e) => {
+      self.markerOnMouseOut(e);
+    });
+    newMarker.addTo(this.map).bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
+    console.log('new maker', newMarker);
     this.markersLatLng.push(corr);
     this.updateBound();
   }
@@ -59,14 +93,10 @@ export class MapComponent implements OnInit {
     // end search location
 
     // make markers
-    L.marker([51.505, -0.09], this.markIcon).addTo(this.map).bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
-    this.markersLatLng.push([51.505, -0.09]);
-    this.map.on('click', this.onMapClick.bind(this));
-
+    this.markerFactory([51.505, -0.09]);
     this.markerFactory([10.762622, 106.660172]);
     this.markerFactory([-22.729958, -47.334938]);
-
-
+    this.map.on('click', this.onMapClick.bind(this));
   }
 
 }

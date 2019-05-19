@@ -1,0 +1,13 @@
+<div *ngIf="isShow || isHover">
+  <ul class="button-list hidden" [style.top]="((+positionTop) - 10) + 'px'" [style.left]="((+positionLeft) + 15)  + 'px'" (mouseover)="isHover = true" (mouseleave)="isHover = false">
+    <li>
+      <button>edit</button>
+    </li>
+    <li>
+      <button>delete</button>
+    </li>
+    <li>
+      <button>close</button>
+    </li>
+  </ul>
+</div>
