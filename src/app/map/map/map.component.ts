@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
   updateBound() {
     console.log('go here');
     this.map.fitBounds(this.markersLatLng, {
-      padding: [10, 10]
+      padding: [50, 50]
     });
   }
 
@@ -52,7 +52,7 @@ export class MapComponent implements OnInit {
       console.log('ra ket qua', data);
       results.clearLayers();
       for (let i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
+        results.addLayer(L.marker(data.results[i].latlng, this.markIcon));
       }
     });
     const results = new L.LayerGroup().addTo(this.map);
